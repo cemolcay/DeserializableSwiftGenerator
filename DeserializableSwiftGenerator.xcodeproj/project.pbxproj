@@ -1,0 +1,408 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B202CF8E1A15E5A30009277F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CF8D1A15E5A30009277F /* AppDelegate.swift */; };
+		B202CF901A15E5A30009277F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B202CF8F1A15E5A30009277F /* Images.xcassets */; };
+		B202CF931A15E5A30009277F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B202CF911A15E5A30009277F /* MainMenu.xib */; };
+		B202CF9F1A15E5A30009277F /* DeserializableSwiftGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CF9E1A15E5A30009277F /* DeserializableSwiftGeneratorTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B202CF991A15E5A30009277F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B202CF801A15E5A30009277F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B202CF871A15E5A30009277F;
+			remoteInfo = DeserializableSwiftGenerator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B202CF881A15E5A30009277F /* DeserializableSwiftGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeserializableSwiftGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B202CF8C1A15E5A30009277F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B202CF8D1A15E5A30009277F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B202CF8F1A15E5A30009277F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B202CF921A15E5A30009277F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B202CF981A15E5A30009277F /* DeserializableSwiftGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeserializableSwiftGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B202CF9D1A15E5A30009277F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B202CF9E1A15E5A30009277F /* DeserializableSwiftGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeserializableSwiftGeneratorTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B202CF851A15E5A30009277F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B202CF951A15E5A30009277F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B202CF7F1A15E5A30009277F = {
+			isa = PBXGroup;
+			children = (
+				B202CF8A1A15E5A30009277F /* DeserializableSwiftGenerator */,
+				B202CF9B1A15E5A30009277F /* DeserializableSwiftGeneratorTests */,
+				B202CF891A15E5A30009277F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B202CF891A15E5A30009277F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B202CF881A15E5A30009277F /* DeserializableSwiftGenerator.app */,
+				B202CF981A15E5A30009277F /* DeserializableSwiftGeneratorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B202CF8A1A15E5A30009277F /* DeserializableSwiftGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				B202CF8D1A15E5A30009277F /* AppDelegate.swift */,
+				B202CF8F1A15E5A30009277F /* Images.xcassets */,
+				B202CF911A15E5A30009277F /* MainMenu.xib */,
+				B202CF8B1A15E5A30009277F /* Supporting Files */,
+			);
+			path = DeserializableSwiftGenerator;
+			sourceTree = "<group>";
+		};
+		B202CF8B1A15E5A30009277F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B202CF8C1A15E5A30009277F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B202CF9B1A15E5A30009277F /* DeserializableSwiftGeneratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				B202CF9E1A15E5A30009277F /* DeserializableSwiftGeneratorTests.swift */,
+				B202CF9C1A15E5A30009277F /* Supporting Files */,
+			);
+			path = DeserializableSwiftGeneratorTests;
+			sourceTree = "<group>";
+		};
+		B202CF9C1A15E5A30009277F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B202CF9D1A15E5A30009277F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B202CF871A15E5A30009277F /* DeserializableSwiftGenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B202CFA21A15E5A30009277F /* Build configuration list for PBXNativeTarget "DeserializableSwiftGenerator" */;
+			buildPhases = (
+				B202CF841A15E5A30009277F /* Sources */,
+				B202CF851A15E5A30009277F /* Frameworks */,
+				B202CF861A15E5A30009277F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeserializableSwiftGenerator;
+			productName = DeserializableSwiftGenerator;
+			productReference = B202CF881A15E5A30009277F /* DeserializableSwiftGenerator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B202CF971A15E5A30009277F /* DeserializableSwiftGeneratorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B202CFA51A15E5A30009277F /* Build configuration list for PBXNativeTarget "DeserializableSwiftGeneratorTests" */;
+			buildPhases = (
+				B202CF941A15E5A30009277F /* Sources */,
+				B202CF951A15E5A30009277F /* Frameworks */,
+				B202CF961A15E5A30009277F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B202CF9A1A15E5A30009277F /* PBXTargetDependency */,
+			);
+			name = DeserializableSwiftGeneratorTests;
+			productName = DeserializableSwiftGeneratorTests;
+			productReference = B202CF981A15E5A30009277F /* DeserializableSwiftGeneratorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B202CF801A15E5A30009277F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Cem Olcay";
+				TargetAttributes = {
+					B202CF871A15E5A30009277F = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					B202CF971A15E5A30009277F = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = B202CF871A15E5A30009277F;
+					};
+				};
+			};
+			buildConfigurationList = B202CF831A15E5A30009277F /* Build configuration list for PBXProject "DeserializableSwiftGenerator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B202CF7F1A15E5A30009277F;
+			productRefGroup = B202CF891A15E5A30009277F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B202CF871A15E5A30009277F /* DeserializableSwiftGenerator */,
+				B202CF971A15E5A30009277F /* DeserializableSwiftGeneratorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B202CF861A15E5A30009277F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B202CF901A15E5A30009277F /* Images.xcassets in Resources */,
+				B202CF931A15E5A30009277F /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B202CF961A15E5A30009277F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B202CF841A15E5A30009277F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B202CF8E1A15E5A30009277F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B202CF941A15E5A30009277F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B202CF9F1A15E5A30009277F /* DeserializableSwiftGeneratorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B202CF9A1A15E5A30009277F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B202CF871A15E5A30009277F /* DeserializableSwiftGenerator */;
+			targetProxy = B202CF991A15E5A30009277F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B202CF911A15E5A30009277F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B202CF921A15E5A30009277F /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B202CFA01A15E5A30009277F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B202CFA11A15E5A30009277F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B202CFA31A15E5A30009277F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DeserializableSwiftGenerator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B202CFA41A15E5A30009277F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DeserializableSwiftGenerator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B202CFA61A15E5A30009277F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DeserializableSwiftGeneratorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeserializableSwiftGenerator.app/Contents/MacOS/DeserializableSwiftGenerator";
+			};
+			name = Debug;
+		};
+		B202CFA71A15E5A30009277F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DeserializableSwiftGeneratorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeserializableSwiftGenerator.app/Contents/MacOS/DeserializableSwiftGenerator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B202CF831A15E5A30009277F /* Build configuration list for PBXProject "DeserializableSwiftGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B202CFA01A15E5A30009277F /* Debug */,
+				B202CFA11A15E5A30009277F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B202CFA21A15E5A30009277F /* Build configuration list for PBXNativeTarget "DeserializableSwiftGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B202CFA31A15E5A30009277F /* Debug */,
+				B202CFA41A15E5A30009277F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B202CFA51A15E5A30009277F /* Build configuration list for PBXNativeTarget "DeserializableSwiftGeneratorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B202CFA61A15E5A30009277F /* Debug */,
+				B202CFA71A15E5A30009277F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B202CF801A15E5A30009277F /* Project object */;
+}
