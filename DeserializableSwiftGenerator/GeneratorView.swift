@@ -10,6 +10,8 @@ import Foundation
 import AppKit
 
 
+let DefaultSuperClass : String = "NSObject"
+
 extension Array {
     mutating func removeObject<U: Equatable>(object: U) {
         var index: Int?
@@ -65,6 +67,7 @@ class GeneratorView: NSView, NSTableViewDataSource, NSTableViewDelegate {
         addProperty()
     }
     
+    
     func addProperty () {
         let prop = Property (name: "", type: "", mapName: "")
         properties.append(prop)
@@ -77,25 +80,27 @@ class GeneratorView: NSView, NSTableViewDataSource, NSTableViewDelegate {
         
     }
     
+    
     @IBAction func addPressed (sender: AnyObject) {
         addProperty()
     }
     
     @IBAction func generatePressed (sender: AnyObject) {
-        
-        let generator = Generator ()
-        let name = classField.stringValue
-        let superName = superClassField.stringValue
-        
-        switch generationMode() {
-            case .FromJson:
-                let jsonString = jsonTextView.string!
-                generator.generate(name, superClassName: superName, jsonString: jsonString)
+        if isValid() {
+            let generator = Generator ()
+            let name = classField.stringValue
+            let superName = superClassField.stringValue
+            
+            switch generationMode() {
+                case .FromJson:
+                    let jsonString = jsonTextView.string!
+                    generator.generate(name, superClassName: superName, jsonString: jsonString)
 
-            case .FromList:
-                generator.generate(name, superClassName: superName, properties: properties)
-            default:
-                return
+                case .FromList:
+                    generator.generate(name, superClassName: superName, properties: properties)
+                default:
+                    return
+            }
         }
     }
     
@@ -106,6 +111,10 @@ class GeneratorView: NSView, NSTableViewDataSource, NSTableViewDelegate {
         
         if (c == 0) {
             return false
+        }
+        
+        if superClassField.stringValue.isEmpty {
+            superClassField.stringValue = DefaultSuperClass
         }
         
         if (generationMode() == GenerationMode.FromList) {

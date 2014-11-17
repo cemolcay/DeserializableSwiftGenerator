@@ -41,6 +41,10 @@ class PropertyView: NSView, NSTextFieldDelegate {
     }
 
     
+    @IBAction func deletePressed(sender: AnyObject) {
+        generatorView?.deleteProperty(property!)
+    }
+    
     // MARK: NSTextFieldDelegate
     
     override func controlTextDidChange(obj: NSNotification) {
@@ -49,11 +53,11 @@ class PropertyView: NSView, NSTextFieldDelegate {
             property!.propertyName = txt.stringValue
             property!.propertyMapName = txt.stringValue
             
-            if (countElements(txt.stringValue) > 0) {
-                addNextProperty()
-            } else {
-                generatorView!.deleteProperty(self.property!)
-            }
+//            if (countElements(txt.stringValue) > 0) {
+//                addNextProperty()
+//            } else {
+//                generatorView!.deleteProperty(self.property!)
+//            }
             
         } else if (txt == typeField) {
             property!.propertyType = txt.stringValue
