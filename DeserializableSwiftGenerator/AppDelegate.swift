@@ -7,21 +7,44 @@
 //
 
 import Cocoa
+import Foundation
+import AppKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-
+    @IBOutlet weak var generatorView: GeneratorView!
+    
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
+    
     }
 
+    
+    func testGenerator () {
+        let t1 = Property (name: "name", type: "String", mapName: "Name")
+        let t2 = Property (name: "surname", type: "String", mapName: "SurName")
+        let t3 = Property (name: "age", type: "Int", mapName: "Age")
+        
+        var c = ClassObject ()
+        c.name = "User"
+        c.superClassName = "BaseResponse"
+        c.properties = [t1, t2, t3]
+        
+        let gen = Generator()
+        gen.generate(c)
+    }
 
+    
+    func testFromJSONGenerator () {
+        let gen = Generator ()
+        gen.generate("YSUser", superClassName: "BaseResponse", jsonString: "{\"value\": \"New\", \"onclick\": \"CreateNewDoc\", \"points\":28, \"floats\":28.5}")
+    }
+    
 }
 

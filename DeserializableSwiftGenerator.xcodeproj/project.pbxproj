@@ -11,6 +11,14 @@
 		B202CF901A15E5A30009277F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B202CF8F1A15E5A30009277F /* Images.xcassets */; };
 		B202CF931A15E5A30009277F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B202CF911A15E5A30009277F /* MainMenu.xib */; };
 		B202CF9F1A15E5A30009277F /* DeserializableSwiftGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CF9E1A15E5A30009277F /* DeserializableSwiftGeneratorTests.swift */; };
+		B202CFA91A15E5BE0009277F /* GeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFA81A15E5BE0009277F /* GeneratorView.swift */; };
+		B202CFAB1A15E5F40009277F /* ClassObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFAA1A15E5F40009277F /* ClassObject.swift */; };
+		B202CFAD1A15EA1B0009277F /* PropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFAC1A15EA1B0009277F /* PropertyView.swift */; };
+		B202CFAF1A15F33F0009277F /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFAE1A15F33F0009277F /* Property.swift */; };
+		B202CFB11A160BBA0009277F /* JsonDeserializerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFB01A160BBA0009277F /* JsonDeserializerModule.swift */; };
+		B202CFB71A1610130009277F /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFB61A1610130009277F /* Generator.swift */; };
+		B204B08A1A1628E000745827 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B204B0891A1628E000745827 /* SwiftyJSON.swift */; };
+		B2A4358F1A19F18800D3A291 /* PropertyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A4358E1A19F18800D3A291 /* PropertyView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +40,14 @@
 		B202CF981A15E5A30009277F /* DeserializableSwiftGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeserializableSwiftGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B202CF9D1A15E5A30009277F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B202CF9E1A15E5A30009277F /* DeserializableSwiftGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeserializableSwiftGeneratorTests.swift; sourceTree = "<group>"; };
+		B202CFA81A15E5BE0009277F /* GeneratorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorView.swift; sourceTree = "<group>"; };
+		B202CFAA1A15E5F40009277F /* ClassObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassObject.swift; sourceTree = "<group>"; };
+		B202CFAC1A15EA1B0009277F /* PropertyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyView.swift; sourceTree = "<group>"; };
+		B202CFAE1A15F33F0009277F /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		B202CFB01A160BBA0009277F /* JsonDeserializerModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDeserializerModule.swift; sourceTree = "<group>"; };
+		B202CFB61A1610130009277F /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		B204B0891A1628E000745827 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		B2A4358E1A19F18800D3A291 /* PropertyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				B202CF8D1A15E5A30009277F /* AppDelegate.swift */,
-				B202CF8F1A15E5A30009277F /* Images.xcassets */,
-				B202CF911A15E5A30009277F /* MainMenu.xib */,
+				B202CFB41A160F0D0009277F /* Data */,
+				B202CFB51A160F170009277F /* View */,
 				B202CF8B1A15E5A30009277F /* Supporting Files */,
 			);
 			path = DeserializableSwiftGenerator;
@@ -84,6 +100,7 @@
 		B202CF8B1A15E5A30009277F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B202CF8F1A15E5A30009277F /* Images.xcassets */,
 				B202CF8C1A15E5A30009277F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -104,6 +121,29 @@
 				B202CF9D1A15E5A30009277F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B202CFB41A160F0D0009277F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B204B0891A1628E000745827 /* SwiftyJSON.swift */,
+				B202CFB61A1610130009277F /* Generator.swift */,
+				B202CFAA1A15E5F40009277F /* ClassObject.swift */,
+				B202CFAE1A15F33F0009277F /* Property.swift */,
+				B202CFB01A160BBA0009277F /* JsonDeserializerModule.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		B202CFB51A160F170009277F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B202CF911A15E5A30009277F /* MainMenu.xib */,
+				B202CFA81A15E5BE0009277F /* GeneratorView.swift */,
+				B202CFAC1A15EA1B0009277F /* PropertyView.swift */,
+				B2A4358E1A19F18800D3A291 /* PropertyView.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A4358F1A19F18800D3A291 /* PropertyView.xib in Resources */,
 				B202CF901A15E5A30009277F /* Images.xcassets in Resources */,
 				B202CF931A15E5A30009277F /* MainMenu.xib in Resources */,
 			);
@@ -205,6 +246,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B202CFB11A160BBA0009277F /* JsonDeserializerModule.swift in Sources */,
+				B202CFAF1A15F33F0009277F /* Property.swift in Sources */,
+				B202CFAB1A15E5F40009277F /* ClassObject.swift in Sources */,
+				B204B08A1A1628E000745827 /* SwiftyJSON.swift in Sources */,
+				B202CFAD1A15EA1B0009277F /* PropertyView.swift in Sources */,
+				B202CFB71A1610130009277F /* Generator.swift in Sources */,
+				B202CFA91A15E5BE0009277F /* GeneratorView.swift in Sources */,
 				B202CF8E1A15E5A30009277F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +441,7 @@
 				B202CFA41A15E5A30009277F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B202CFA51A15E5A30009277F /* Build configuration list for PBXNativeTarget "DeserializableSwiftGeneratorTests" */ = {
 			isa = XCConfigurationList;
@@ -401,6 +450,7 @@
 				B202CFA71A15E5A30009277F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
