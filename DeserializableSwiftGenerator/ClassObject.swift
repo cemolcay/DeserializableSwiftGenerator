@@ -19,7 +19,7 @@ class ClassObject: NSObject {
     
     // MARK: Makers
     private func makeHeader () -> String {
-        return "import UIKit" + newline() + "class " + name! + ": " + superClassName! + " {" + newline()
+        return "import UIKit" + newline() + "class " + name! + ": " + superClassName! + ", Deserializable {" + newline()
     }
     
     private func makeProperties () -> String {
