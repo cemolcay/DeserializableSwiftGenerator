@@ -47,6 +47,7 @@ class GeneratorView: NSView, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet var jsonTextView: NSTextView!
     
     
+    
     // MARK: Generator
     
     var awakeFromNibHack: Int = 0
@@ -131,6 +132,9 @@ class GeneratorView: NSView, NSTableViewDataSource, NSTableViewDelegate {
         let gm = GenerationMode (rawValue: tabView.indexOfTabViewItem(tabView.selectedTabViewItem!))!
         return gm
     }
+
+    
+    
     // MARK: NSTableViewDataSoruce
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {

@@ -24,6 +24,8 @@ class Property: NSObject {
         propertyMapName = mapName
     }
     
+    
+
     func valid () -> Bool {
         
         if (propertyName!.isEmpty) {

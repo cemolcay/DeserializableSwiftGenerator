@@ -788,7 +788,7 @@
                                         </scrollView>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="otA-gr-xdT">
                                             <rect key="frame" x="0.0" y="17" width="33" height="243"/>
-                                            <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" image="04AEF06B-CBF6-4EAB-A7C4-A263482C6EF2" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="1Ag-on-rSJ">
+                                            <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" image="2718884D-EB1A-4D91-94FC-8BFE28239375" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="1Ag-on-rSJ">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -883,7 +883,7 @@
         <collectionViewItem id="xMs-uo-XcS"/>
     </objects>
     <resources>
-        <image name="04AEF06B-CBF6-4EAB-A7C4-A263482C6EF2" width="1" height="1">
+        <image name="2718884D-EB1A-4D91-94FC-8BFE28239375" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

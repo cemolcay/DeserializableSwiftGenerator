@@ -12,6 +12,9 @@ import Foundation
 
 class PropertyView: NSView, NSTextFieldDelegate {
 
+    
+    // MARK: Properties
+    
     @IBOutlet var nameField : NSTextField?
     @IBOutlet var typeField : NSTextField?
     @IBOutlet var mapField : NSTextField?
@@ -20,6 +23,10 @@ class PropertyView: NSView, NSTextFieldDelegate {
     var property : Property?
     
     var addNextHack : Int = 0
+    
+    
+    
+    // MARK: Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,16 +41,21 @@ class PropertyView: NSView, NSTextFieldDelegate {
         super.init(coder: coder)
     }
     
+   
+    
+    // MARK: Actions
+    
     func addNextProperty () {
         if (addNextHack++ == 0) {
             generatorView?.addProperty()
         }
     }
 
-    
     @IBAction func deletePressed(sender: AnyObject) {
         generatorView?.deleteProperty(property!)
     }
+    
+    
     
     // MARK: NSTextFieldDelegate
     

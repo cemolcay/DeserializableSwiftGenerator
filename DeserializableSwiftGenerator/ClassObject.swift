@@ -12,12 +12,15 @@ import Foundation
 class ClassObject: NSObject {
     
     // MARK: Properties
+    
     var name: String? //className was taken by swift
     var superClassName : String?
     var properties: [Property]?
     
     
+    
     // MARK: Makers
+    
     private func makeHeader () -> String {
         return "import UIKit" + newline() + "class " + name! + ": " + superClassName! + ", Deserializable {" + newline()
     }
@@ -46,7 +49,9 @@ class ClassObject: NSObject {
     }
     
     
+    
     // MARK: Generator
+    
     func make () -> String {
         if valid() {
             return makeClass()
@@ -70,8 +75,10 @@ class ClassObject: NSObject {
         println("\(result)")
     }
 
+    
 
     // MARK: Utils
+    
     func newline () -> String {
         return "\n"
     }

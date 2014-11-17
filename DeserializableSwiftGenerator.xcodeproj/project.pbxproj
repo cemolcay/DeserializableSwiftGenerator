@@ -17,7 +17,6 @@
 		B202CFAF1A15F33F0009277F /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFAE1A15F33F0009277F /* Property.swift */; };
 		B202CFB11A160BBA0009277F /* JsonDeserializerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFB01A160BBA0009277F /* JsonDeserializerModule.swift */; };
 		B202CFB71A1610130009277F /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFB61A1610130009277F /* Generator.swift */; };
-		B204B08A1A1628E000745827 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B204B0891A1628E000745827 /* SwiftyJSON.swift */; };
 		B2A4358F1A19F18800D3A291 /* PropertyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A4358E1A19F18800D3A291 /* PropertyView.xib */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +45,6 @@
 		B202CFAE1A15F33F0009277F /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		B202CFB01A160BBA0009277F /* JsonDeserializerModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDeserializerModule.swift; sourceTree = "<group>"; };
 		B202CFB61A1610130009277F /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
-		B204B0891A1628E000745827 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		B2A4358E1A19F18800D3A291 /* PropertyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +124,6 @@
 		B202CFB41A160F0D0009277F /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B204B0891A1628E000745827 /* SwiftyJSON.swift */,
 				B202CFB61A1610130009277F /* Generator.swift */,
 				B202CFAA1A15E5F40009277F /* ClassObject.swift */,
 				B202CFAE1A15F33F0009277F /* Property.swift */,
@@ -249,7 +246,6 @@
 				B202CFB11A160BBA0009277F /* JsonDeserializerModule.swift in Sources */,
 				B202CFAF1A15F33F0009277F /* Property.swift in Sources */,
 				B202CFAB1A15E5F40009277F /* ClassObject.swift in Sources */,
-				B204B08A1A1628E000745827 /* SwiftyJSON.swift in Sources */,
 				B202CFAD1A15EA1B0009277F /* PropertyView.swift in Sources */,
 				B202CFB71A1610130009277F /* Generator.swift in Sources */,
 				B202CFA91A15E5BE0009277F /* GeneratorView.swift in Sources */,
