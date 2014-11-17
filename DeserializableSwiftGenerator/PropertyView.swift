@@ -16,7 +16,10 @@ class PropertyView: NSView, NSTextFieldDelegate {
     @IBOutlet var typeField : NSTextField?
     @IBOutlet var mapField : NSTextField?
     
+    var generatorView : GeneratorView?
     var property : Property?
+    
+    var addNextHack : Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,18 +34,12 @@ class PropertyView: NSView, NSTextFieldDelegate {
         super.init(coder: coder)
     }
     
-    override func awakeFromNib() {
-        println("awoke")
+    func addNextProperty () {
+        if (addNextHack++ == 0) {
+            generatorView?.addProperty()
+        }
     }
-    
-    @IBAction func nextPressed (sender: AnyObject) {
 
-    }
-    
-    @IBAction func deletePressed (sender: AnyObject) {
-
-    }
-    
     
     // MARK: NSTextFieldDelegate
     
@@ -51,10 +48,39 @@ class PropertyView: NSView, NSTextFieldDelegate {
         if (txt == nameField) {
             property!.propertyName = txt.stringValue
             property!.propertyMapName = txt.stringValue
+            
+            if (countElements(txt.stringValue) > 0) {
+                addNextProperty()
+            } else {
+                generatorView!.deleteProperty(self.property!)
+            }
+            
         } else if (txt == typeField) {
             property!.propertyType = txt.stringValue
         } else if (txt == mapField) {
             property!.propertyMapName = txt.stringValue
         }
     }
+    
+    func control(control: NSControl, textView: NSTextView, completions words: [AnyObject], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [AnyObject] {
+        if (textView == typeField) {
+            var result = []
+            let string = textView.string
+            
+            if (string == "S" || string == "s") {
+                result = ["String"]
+            } else if (string == "F") {
+                result = ["Float"]
+            } else if (string == "C") {
+                result = ["CGFloat"]
+            } else if (string == "i" || string == "I") {
+                result == ["Int"]
+            }
+            
+            return result
+        }
+        
+        return []
+    }
+    
 }

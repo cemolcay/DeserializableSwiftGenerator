@@ -58,7 +58,7 @@
                 <outlet property="nameField" destination="BFO-z4-nbi" id="cXA-HX-9bw"/>
                 <outlet property="typeField" destination="jlf-tP-Eon" id="8R8-xS-nXo"/>
             </connections>
-            <point key="canvasLocation" x="376" y="278"/>
+            <point key="canvasLocation" x="440" y="310"/>
         </customView>
     </objects>
 </document>

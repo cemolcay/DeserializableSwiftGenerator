@@ -10,6 +10,23 @@ import Foundation
 import AppKit
 
 
+extension Array {
+    mutating func removeObject<U: Equatable>(object: U) {
+        var index: Int?
+        for (idx, objectToCompare) in enumerate(self) {
+            if let to = objectToCompare as? U {
+                if object == to {
+                    index = idx
+                }
+            }
+        }
+        
+        if(index != nil) {
+            self.removeAtIndex(index!)
+        }
+    }
+}
+
 enum GenerationMode : Int {
     case FromList
     case FromJson
@@ -54,6 +71,11 @@ class GeneratorView: NSView, NSTableViewDataSource, NSTableViewDelegate {
         tableView!.reloadData()
     }
     
+    func deleteProperty (property: Property) {
+        properties.removeObject(property)
+        tableView.reloadData()
+        
+    }
     
     @IBAction func addPressed (sender: AnyObject) {
         addProperty()
@@ -109,6 +131,8 @@ class GeneratorView: NSView, NSTableViewDataSource, NSTableViewDelegate {
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var propertyView = tableView.makeViewWithIdentifier("PropertyViewCell", owner: self) as PropertyView
         propertyView.property = properties[row]
+        propertyView.generatorView = self
+        propertyView.nameField?.becomeFirstResponder()
         return propertyView
     }
 }

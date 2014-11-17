@@ -10,15 +10,15 @@ import Cocoa
 import Foundation
 import AppKit
 
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-    @IBOutlet weak var generatorView: GeneratorView!
+    @IBOutlet var generatorView: GeneratorView!
     
-
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-
+        
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
