@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>36746D40-0CF7-4EC9-B760-0769B6277782</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DeserializableSwiftGenerator</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>728D82801C5399F006D293EA005B5D59CDBF475B</key>
+		<string>https://github.com/cemolcay/DeserializableSwiftGenerator.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DeserializableSwiftGenerator.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>728D82801C5399F006D293EA005B5D59CDBF475B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cemolcay/DeserializableSwiftGenerator.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>728D82801C5399F006D293EA005B5D59CDBF475B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>728D82801C5399F006D293EA005B5D59CDBF475B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DeserializableSwiftGenerator</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -23,7 +23,7 @@ class PropertyView: NSView, NSTextFieldDelegate {
     var property : Property?
     
     var addNextHack : Int = 0
-    
+    var autocomplate : Bool = false
     
     
     // MARK: Lifecycle
@@ -61,6 +61,7 @@ class PropertyView: NSView, NSTextFieldDelegate {
     
     override func controlTextDidChange(obj: NSNotification) {
         let txt = obj.object as NSTextField
+        
         if (txt == nameField) {
             property!.propertyName = txt.stringValue
             property!.propertyMapName = txt.stringValue
@@ -72,6 +73,11 @@ class PropertyView: NSView, NSTextFieldDelegate {
 //            }
             
         } else if (txt == typeField) {
+            
+            if !autocomplate {
+                autocomplate = true
+            }
+            
             property!.propertyType = txt.stringValue
         } else if (txt == mapField) {
             property!.propertyMapName = txt.stringValue
