@@ -22,7 +22,7 @@ class ClassObject: NSObject {
     // MARK: Makers
     
     private func makeHeader () -> String {
-        return "import UIKit" + newline() + "class " + name! + ": " + superClassName! + ", Deserializable {" + newline()
+        return "import UIKit" + newline() + newline() + "class " + name! + ": " + superClassName! + ", Deserializable {" + newline()
     }
     
     private func makeProperties () -> String {
@@ -34,7 +34,7 @@ class ClassObject: NSObject {
     }
     
     private func makeMapper () -> String {
-        var method = tab(1) + "required init (data: [String: AnyObject]) {" + newline() + tab(2) + "super.init (data: data)"
+        var method = tab(1) + "required init (data: [String: AnyObject]) {" + newline() + tab(2) + "super.init (data: data)" + newline()
         
         for prop in properties! {
             method += newline() + tab(2) + prop.makeMap()

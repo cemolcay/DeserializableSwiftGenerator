@@ -104,5 +104,4 @@ class PropertyView: NSView, NSTextFieldDelegate {
         
         return []
     }
-    
 }

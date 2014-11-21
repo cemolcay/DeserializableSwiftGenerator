@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 
 
-let DefaultSuperClass : String = "NSObject"
+let DefaultSuperClass : String = "BaseResponse"
 
 extension Array {
     mutating func removeObject<U: Equatable>(object: U) {
