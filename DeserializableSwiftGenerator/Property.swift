@@ -16,6 +16,8 @@ class Property: NSObject {
     var propertyType : String?
     var propertyMapName : String?
     
+    var __type: String = "Array"
+    
     init (name: String, type: String, mapName: String) {
         super.init()
         
@@ -40,7 +42,11 @@ class Property: NSObject {
     
     func makeVariable () -> String {
         if valid() {
-            return "var " + propertyName! + ": " + propertyType! + "?"
+            if propertyType == "Array" {
+                return "var " + propertyName! + ": " + __type + "?"
+            } else {
+                return "var " + propertyName! + ": " + propertyType! + "?"
+            }
         } else {
             return ""
         }
@@ -48,7 +54,11 @@ class Property: NSObject {
     
     func makeMap () -> String {
         if valid() {
-            return propertyName! + " <<< " + "data[\"" + propertyMapName! + "\"]"
+            if propertyType == "Array" {
+                return propertyName! + " <<<<* " + "data[\"" + propertyMapName! + "\"]"
+            } else {
+                return propertyName! + " <<< " + "data[\"" + propertyMapName! + "\"]"
+            }
         } else {
             return ""
         }

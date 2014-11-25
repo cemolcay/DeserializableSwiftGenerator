@@ -24,7 +24,7 @@ class JsonDeserializerModule: NSObject {
             println("json error " + error.description)
         }
         
-        println("data \(jsonData)\nobject \(jsonObject) \nstring \(json)")
+        //println("data \(jsonData)\nobject \(jsonObject) \nstring \(json)")
     }
     
     
@@ -33,7 +33,20 @@ class JsonDeserializerModule: NSObject {
         
         if let dict = jsonObject {
             for (key, value) in jsonObject! {
-                var prop = Property (name: key, type: cleanClass(value), mapName: key)
+                let clean = cleanClass(value)
+                var prop = Property (name: key, type: clean, mapName: key)
+                
+                if clean == "Array" {
+                    if value.count > 0 {
+                        if let first = value.firstObject as? [String: AnyObject] {
+                            if let type: String = first["__type"] as? String {
+                                println("type, " + type)
+                                prop.__type = "[" + type.componentsSeparatedByString(":").first! + "]"
+                            }
+                        }
+                    }
+                }
+                
                 result.append(prop)
             }
         }
@@ -44,7 +57,7 @@ class JsonDeserializerModule: NSObject {
     func cleanClass (object: AnyObject) -> String {
         let name = "\(_stdlib_getTypeName(object))"
 
-        if (name == "__NSCFString" || name == "NSTaggedPointerString") {
+        if (name == "__NSCFString" || name == "NSTaggedPointerString" || name == "__NSCFConstantString") {
             return "String"
         } else if (name == "__NSCFNumber") {
             return "Float"
