@@ -43,6 +43,13 @@ class FromObjcPropertyModule: NSObject {
             return "Float"
         } else if type == "BOOL" {
             return "Bool"
+        } else if type.hasPrefix("NSArray") {
+            if type.hasSuffix(">") {
+                var obj = split (type) { $0 == "<" } [1]
+                return obj.stringByReplacingOccurrencesOfString(">", withString: "", options: nil, range: nil)
+            } else {
+                return "[Any]"
+            }
         }
         
         else {
