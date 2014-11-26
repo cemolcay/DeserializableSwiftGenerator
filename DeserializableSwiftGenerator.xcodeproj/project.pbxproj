@@ -18,6 +18,7 @@
 		B202CFB11A160BBA0009277F /* JsonDeserializerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFB01A160BBA0009277F /* JsonDeserializerModule.swift */; };
 		B202CFB71A1610130009277F /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202CFB61A1610130009277F /* Generator.swift */; };
 		B2A4358F1A19F18800D3A291 /* PropertyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A4358E1A19F18800D3A291 /* PropertyView.xib */; };
+		B2BA92181A25CCF800101A4C /* FromObjcPropertyModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BA92171A25CCF800101A4C /* FromObjcPropertyModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		B202CFB01A160BBA0009277F /* JsonDeserializerModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDeserializerModule.swift; sourceTree = "<group>"; };
 		B202CFB61A1610130009277F /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		B2A4358E1A19F18800D3A291 /* PropertyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyView.xib; sourceTree = "<group>"; };
+		B2BA92171A25CCF800101A4C /* FromObjcPropertyModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromObjcPropertyModule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				B202CFB61A1610130009277F /* Generator.swift */,
 				B202CFAA1A15E5F40009277F /* ClassObject.swift */,
 				B202CFAE1A15F33F0009277F /* Property.swift */,
+				B2BA92171A25CCF800101A4C /* FromObjcPropertyModule.swift */,
 				B202CFB01A160BBA0009277F /* JsonDeserializerModule.swift */,
 			);
 			name = Data;
@@ -247,6 +250,7 @@
 				B202CFAF1A15F33F0009277F /* Property.swift in Sources */,
 				B202CFAB1A15E5F40009277F /* ClassObject.swift in Sources */,
 				B202CFAD1A15EA1B0009277F /* PropertyView.swift in Sources */,
+				B2BA92181A25CCF800101A4C /* FromObjcPropertyModule.swift in Sources */,
 				B202CFB71A1610130009277F /* Generator.swift in Sources */,
 				B202CFA91A15E5BE0009277F /* GeneratorView.swift in Sources */,
 				B202CF8E1A15E5A30009277F /* AppDelegate.swift in Sources */,

@@ -11,7 +11,11 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application" customClass="GeneratorView"/>
+        <customObject id="-3" userLabel="Application" customClass="GeneratorView">
+            <connections>
+                <outlet property="objcTextView" destination="M8g-K8-Foi" id="2va-hZ-DqG"/>
+            </connections>
+        </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
@@ -788,7 +792,7 @@
                                         </scrollView>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="otA-gr-xdT">
                                             <rect key="frame" x="0.0" y="17" width="33" height="243"/>
-                                            <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" image="2718884D-EB1A-4D91-94FC-8BFE28239375" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="1Ag-on-rSJ">
+                                            <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" image="17A2D2F2-CAC1-430E-B634-3664735E0637" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="1Ag-on-rSJ">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -851,6 +855,48 @@
                                     </constraints>
                                 </view>
                             </tabViewItem>
+                            <tabViewItem label="ObjC" identifier="" id="GVD-Nq-dPu">
+                                <view key="view" id="eXB-Wb-2bP">
+                                    <rect key="frame" x="10" y="33" width="261" height="263"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2n1-0E-7Jk">
+                                            <rect key="frame" x="17" y="17" width="227" height="243"/>
+                                            <clipView key="contentView" id="fP5-0z-RS5">
+                                                <rect key="frame" x="1" y="1" width="238" height="133"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="M8g-K8-Foi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="238" height="241"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <size key="minSize" width="225" height="241"/>
+                                                        <size key="maxSize" width="463" height="10000000"/>
+                                                        <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <size key="minSize" width="225" height="241"/>
+                                                        <size key="maxSize" width="463" height="10000000"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="mYN-Be-H7U">
+                                                <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Ijw-oV-Veq">
+                                                <rect key="frame" x="223" y="1" width="16" height="133"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                        </scrollView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2n1-0E-7Jk" firstAttribute="leading" secondItem="eXB-Wb-2bP" secondAttribute="leading" constant="17" id="GoO-7J-lf7"/>
+                                        <constraint firstAttribute="trailing" secondItem="2n1-0E-7Jk" secondAttribute="trailing" constant="17" id="WUF-0q-XmR"/>
+                                        <constraint firstItem="2n1-0E-7Jk" firstAttribute="top" secondItem="eXB-Wb-2bP" secondAttribute="top" constant="3" id="d15-CJ-9iU"/>
+                                        <constraint firstAttribute="bottom" secondItem="2n1-0E-7Jk" secondAttribute="bottom" constant="17" id="mIa-70-wRR"/>
+                                    </constraints>
+                                </view>
+                            </tabViewItem>
                         </tabViewItems>
                     </tabView>
                 </subviews>
@@ -872,6 +918,7 @@
                 <connections>
                     <outlet property="classField" destination="wOE-bd-3C1" id="1R9-pm-Xhp"/>
                     <outlet property="jsonTextView" destination="VzR-YW-wrv" id="moT-D3-VK0"/>
+                    <outlet property="objcTextView" destination="M8g-K8-Foi" id="lAT-n3-Nba"/>
                     <outlet property="superClassField" destination="TpP-8P-8kZ" id="cQv-Os-SUh"/>
                     <outlet property="tabView" destination="iPW-Cz-CNP" id="9fM-tl-oWT"/>
                     <outlet property="tableView" destination="X6o-1h-PKF" id="ZF9-GG-cKo"/>
@@ -883,7 +930,7 @@
         <collectionViewItem id="xMs-uo-XcS"/>
     </objects>
     <resources>
-        <image name="2718884D-EB1A-4D91-94FC-8BFE28239375" width="1" height="1">
+        <image name="17A2D2F2-CAC1-430E-B634-3664735E0637" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

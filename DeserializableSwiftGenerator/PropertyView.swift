@@ -30,11 +30,6 @@ class PropertyView: NSView, NSTextFieldDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        var layer = CALayer ()
-        layer.backgroundColor = NSColor.yellowColor().CGColor
-        layer.masksToBounds = true
-        self.layer = layer
     }
 
     required init?(coder: NSCoder) {

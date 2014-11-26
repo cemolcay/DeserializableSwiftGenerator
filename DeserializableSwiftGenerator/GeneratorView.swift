@@ -32,6 +32,7 @@ extension Array {
 enum GenerationMode : Int {
     case FromList
     case FromJson
+    case FromObjcProperty
 }
 
 class GeneratorView: NSView, NSTableViewDataSource, NSTableViewDelegate {
@@ -45,7 +46,7 @@ class GeneratorView: NSView, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet var tabView: NSTabView!
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var jsonTextView: NSTextView!
-    
+    @IBOutlet var objcTextView: NSTextView!
     
     
     // MARK: Generator
@@ -99,6 +100,12 @@ class GeneratorView: NSView, NSTableViewDataSource, NSTableViewDelegate {
 
                 case .FromList:
                     generator.generate(name, superClassName: superName, properties: properties)
+                
+            case .FromObjcProperty:
+                if let string = objcTextView.string {
+                    let module = FromObjcPropertyModule(properties: string)
+                    generator.generate(name, superClassName: superName, properties: module.properties)
+                }
                 default:
                     return
             }
