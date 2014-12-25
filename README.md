@@ -1,20 +1,20 @@
 DeserializableSwiftGenerator
 ============================
 
-json deserializable swift model generator. generate models directly from json file or create them in editor
+JSONHelper or ObjectMapper deserializable swift class generator.
 
 
-![alt tag](https://raw.githubusercontent.com/cemolcay/DeserializableSwiftGenerator/master/Demo/json.png)
+![alt tag](https://raw.githubusercontent.com/cemolcay/DeserializableSwiftGenerator/master/ss.png)
 
 generate deserializable swift class from json string
 
 
-![alt tag](https://raw.githubusercontent.com/cemolcay/DeserializableSwiftGenerator/master/Demo/list.png)
-generate deserializable swift class with editor
-
 Usage
 =====
 
-* JSONHelper (https://github.com/isair/JSONHelper#json-string-deserialization)
+* JSONHelper <br> (https://github.com/isair/JSONHelper#json-string-deserialization)
 
-generator creates JSONHelper deserializable swift classes <br>
+* ObjectMapper <br> (https://github.com/Hearst-DD/ObjectMapper#the-basics)
+
+generator creates `JSONHelper` & `ObjectMapper` deserializable swift classes <br>
+from your response or request json strings  
