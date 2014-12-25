@@ -10,40 +10,75 @@ import Cocoa
 
 class SWJsonParser {
     
+    
+    // MARK: Properties
+    
+    private var generatedSWClasses: [SWClass] = []
+    private var generatedSWClassName: String = ""
+    private var generatedSWClassSuperName: String? = nil
+    
+    
+    
+    // MARK: Lifecycle
+    
     init () {
         
     }
-    
-    func generateSWClass (name: String, superName: String?, json: String) -> SWClass {
-        let props = generateProperties(json)
-        let swclass = SWClass (name: name, superName: superName, properties: props)
 
-        return swclass
-    }
-    
-    func generateProperties (jsonString: String) -> [SWProperty]? {
+    func jsonStringToDict (jsonString: String) -> [String: AnyObject]? {
         var jsonError: NSError? = nil
         let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         let dict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &jsonError)
-        
-        if let d = dict as? [String: AnyObject] {
-            var props: [SWProperty] = []
-            
-            for (key, value) in d {
-                let cl = getClassFromValue(value)
-                let prop = SWProperty (name: key, type: cl)
-                
-                props.append(prop)
+
+        if let e = jsonError {
+            return nil
+        } else {
+            if let d = dict as? [String: AnyObject] {
+                return d
+            } else {
+                return nil
             }
-            
-            return props.count > 0 ? props : nil
         }
-        
-        return nil
     }
     
-    func getClassFromValue (value: AnyObject) -> String {
+    func parseJsonToSWClass (name: String, superName: String?, jsonString: String) -> [SWClass] {
+        self.generatedSWClasses = []
+        self.generatedSWClassName = name
+        self.generatedSWClassSuperName = superName
+        
+        if let dict = jsonStringToDict(jsonString) {
+            let sw = generateSWClass(name, superName: superName, dict: dict)
+            generatedSWClasses.append(sw)
+        }
+        
+        return generatedSWClasses
+    }
+    
+    
+    
+    // MARK: Generator
+    
+    func generateSWClass (name: String, superName: String?, dict: [String: AnyObject]) -> SWClass {
+        let props = generateProperties(dict)
+        let sw = SWClass (name: name, superName: superName, properties: props)
 
+        return sw
+    }
+    
+    func generateProperties (dict: [String: AnyObject]) -> [SWProperty]? {
+        var props: [SWProperty] = []
+        
+        for (key, value) in dict {
+            let cl = getClassFromValue(key, value: value)
+            let prop = SWProperty (name: key, type: cl)
+            
+            props.append(prop)
+        }
+        
+        return props.count > 0 ? props : nil
+    }
+    
+    func getClassFromValue (key: String, value: AnyObject) -> String {
         if value is String {
             return "String"
         } else if value is Int {
@@ -60,12 +95,20 @@ class SWJsonParser {
             return "[Float]"
         } else if value is [Double] {
             return "[Double]"
-        } else if value is [AnyObject] {
-            return "[Serializable]"
         } else if value is NSNull {
             return "String"
+        } else if value is [AnyObject] {
+            if value.count > 0 {
+                let serializable = generateSWClass(key, superName: generatedSWClassSuperName, dict: value[0] as [String: AnyObject])
+                generatedSWClasses.append(serializable)
+            }
+            
+            return String (format: "[%@]", key)
         } else {
-            return "Serializable"
+            let serializable = generateSWClass(key, superName: generatedSWClassSuperName, dict: value as [String: AnyObject])
+            generatedSWClasses.append(serializable)
+            
+            return key
         }
     }
 

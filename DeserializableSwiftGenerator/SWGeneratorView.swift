@@ -54,17 +54,23 @@ class SWGeneratorView: NSView {
         let json = jsonTextView.string!
         
         let parser = SWJsonParser ()
-        let swclass = parser.generateSWClass(name, superName: superName, json: json)
+        let classes = parser.parseJsonToSWClass(name, superName: superName, jsonString: json)
         
         let method = GenerateMethod (rawValue: generateMethodComboBox.indexOfSelectedItem)!
         switch method {
         case .JSONHelper:
             let gen = JSONHelperGenerator ()
-            gen.saveToDesktop(swclass)
+            
+            for sw in classes {
+                gen.saveToDesktop(sw)
+            }
             
         case .ObjectMapper:
             let gen = ObjectMapperGenerator ()
-            gen.saveToDesktop(swclass)
+            
+            for sw in classes {
+                gen.saveToDesktop(sw)
+            }
         }
     }
     
