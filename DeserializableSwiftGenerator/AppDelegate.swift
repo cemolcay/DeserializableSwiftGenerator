@@ -24,26 +24,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     }
 
-    
     func testGenerator () {
-        let t1 = Property (name: "name", type: "String", mapName: "Name")
-        let t2 = Property (name: "surname", type: "String", mapName: "SurName")
-        let t3 = Property (name: "age", type: "Int", mapName: "Age")
+        println("test starting")
         
-        var c = ClassObject ()
-        c.name = "User"
-        c.superClassName = "BaseResponse"
-        c.properties = [t1, t2, t3]
+        let p1 = SWProperty (name: "name", type: "String")
+        let p2 = SWProperty (name: "surname", type: "String")
+        let p3 = SWProperty (name: "age", type: "Int")
         
-        let gen = Generator()
-        gen.generate(c)
+        let c = SWClass (name: "Person", superName: "TestSuper", properties: [p1, p2, p3])
+        
+        let gen  = ObjectMapperGenerator ()
+        let save = gen.saveToDesktop(c)
+        println("did save \(save)")
     }
-
-    
-    func testFromJSONGenerator () {
-        let gen = Generator ()
-        gen.generate("YSUser", superClassName: "BaseResponse", jsonString: "{\"value\": \"New\", \"onclick\": \"CreateNewDoc\", \"points\":28, \"floats\":28.5}")
-    }
-    
 }
 
