@@ -6,7 +6,7 @@ JSONHelper or ObjectMapper deserializable swift class generator.
 
 ![alt tag](https://raw.githubusercontent.com/cemolcay/DeserializableSwiftGenerator/master/ss.png)
 
-generate deserializable swift class from json string
+generates deserializable swift classes from json string
 
 
 Usage
@@ -18,3 +18,10 @@ Usage
 
 generator creates `JSONHelper` & `ObjectMapper` deserializable swift classes <br>
 from your response or request json strings  
+
+
+Class Prefixes
+==============
+
+If you want to add prefix to your generating classes just add prefix in parenthesis before class name.
+ex: (CO)LoginRequest
