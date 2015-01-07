@@ -14,6 +14,7 @@ class SWJsonParser {
     // MARK: Properties
     
     private var generatedSWClasses: [SWClass] = []
+    private var generatedSWClassPrefix: String = ""
     private var generatedSWClassName: String = ""
     private var generatedSWClassSuperName: String? = nil
     
@@ -26,16 +27,19 @@ class SWJsonParser {
     }
 
     func jsonStringToDict (jsonString: String) -> [String: AnyObject]? {
+        println(jsonString)
         var jsonError: NSError? = nil
         let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         let dict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &jsonError)
 
         if let e = jsonError {
+            println("json error " + e.description)
             return nil
         } else {
             if let d = dict as? [String: AnyObject] {
                 return d
             } else {
+                println("json nil")
                 return nil
             }
         }
@@ -46,8 +50,15 @@ class SWJsonParser {
         self.generatedSWClassName = name
         self.generatedSWClassSuperName = superName
         
+        let start = name.rangeOfString("(")
+        let end = name.rangeOfString(")")
+        if (end?.startIndex > start?.startIndex) {
+            generatedSWClassPrefix = name.substringWithRange(start!.endIndex...end!.startIndex.predecessor())
+            generatedSWClassName = generatedSWClassPrefix + name.substringFromIndex(end!.endIndex)
+        }
+        
         if let dict = jsonStringToDict(jsonString) {
-            let sw = generateSWClass(name, superName: superName, dict: dict)
+            let sw = generateSWClass(generatedSWClassName, superName: superName, dict: dict)
             generatedSWClasses.append(sw)
         }
         
@@ -99,13 +110,13 @@ class SWJsonParser {
             return "String"
         } else if value is [AnyObject] {
             if value.count > 0 {
-                let serializable = generateSWClass(key, superName: generatedSWClassSuperName, dict: value[0] as [String: AnyObject])
+                let serializable = generateSWClass(generatedSWClassPrefix + key, superName: generatedSWClassSuperName, dict: value[0] as [String: AnyObject])
                 generatedSWClasses.append(serializable)
             }
             
             return String (format: "[%@]", key)
         } else {
-            let serializable = generateSWClass(key, superName: generatedSWClassSuperName, dict: value as [String: AnyObject])
+            let serializable = generateSWClass(generatedSWClassPrefix + key, superName: generatedSWClassSuperName, dict: value as [String: AnyObject])
             generatedSWClasses.append(serializable)
             
             return key

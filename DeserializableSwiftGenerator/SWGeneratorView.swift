@@ -27,7 +27,14 @@ class SWGeneratorView: NSView {
         }
     }
     
-    
+    override func awakeFromNib() {
+        jsonTextView.font = NSFontManager.sharedFontManager()
+            .fontWithFamily("Menlo",
+                traits: NSFontTraitMask.BoldFontMask,
+                weight: 1,
+                size: 11)
+    }
+
     func validate () -> Bool {
         if nameTextField.stringValue.isEmpty {
             println("not valid, name empty")
@@ -52,25 +59,23 @@ class SWGeneratorView: NSView {
         }
         
         let json = jsonTextView.string!
-        
+
         let parser = SWJsonParser ()
         let classes = parser.parseJsonToSWClass(name, superName: superName, jsonString: json)
-        
+
+        var gen: SWGenerator!
         let method = GenerateMethod (rawValue: generateMethodComboBox.indexOfSelectedItem)!
+        
         switch method {
-        case .JSONHelper:
-            let gen = JSONHelperGenerator ()
-            
-            for sw in classes {
-                gen.saveToDesktop(sw)
-            }
-            
-        case .ObjectMapper:
-            let gen = ObjectMapperGenerator ()
-            
-            for sw in classes {
-                gen.saveToDesktop(sw)
-            }
+            case .JSONHelper:
+                gen = JSONHelperGenerator ()
+                
+            case .ObjectMapper:
+                gen = ObjectMapperGenerator ()
+        }
+        
+        for sw in classes {
+            gen.saveToDesktop(sw)
         }
     }
     
