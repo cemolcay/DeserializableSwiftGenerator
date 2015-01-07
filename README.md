@@ -69,5 +69,5 @@ Generator has three main parts behind the scenes:
           
       case .ObjectMapper:
           gen = ObjectMapperGenerator ()
-  }
+    }
 
