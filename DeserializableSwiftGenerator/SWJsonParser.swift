@@ -119,7 +119,7 @@ class SWJsonParser {
             let serializable = generateSWClass(generatedSWClassPrefix + key, superName: generatedSWClassSuperName, dict: value as [String: AnyObject])
             generatedSWClasses.append(serializable)
             
-            return key
+            return generatedSWClassPrefix + key
         }
     }
 

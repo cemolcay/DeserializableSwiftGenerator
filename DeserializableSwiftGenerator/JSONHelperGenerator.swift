@@ -49,7 +49,7 @@ class JSONHelperGenerator: SWGenerator {
         
         if type[0] == "[" {
             let t = type[advance(type.startIndex, 1)..<advance(type.endIndex, -1)]
-            let allowed = ["String", "Float", "Int", "Double"]
+            let allowed = ["String", "Float", "Int", "Double", "Bool"]
             
             if contains(allowed, t) {
                 op = "<<<*"
@@ -57,7 +57,13 @@ class JSONHelperGenerator: SWGenerator {
                 op = "<<<<*"
             }
         } else {
-            op = "<<<"
+            let allowed = ["String", "Float", "Int", "Double", "Bool"]
+            
+            if contains(allowed, type) {
+                op = "<<<"
+            } else {
+                op = "<<<<"
+            }
         }
         
         return op

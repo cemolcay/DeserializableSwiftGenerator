@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B23" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C99d" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
@@ -686,20 +686,9 @@
                     <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OWU-BP-Aqd" customClass="SWGeneratorView" customModule="DeserializableSwiftGenerator" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="-5" width="245" height="276"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T9T-Jj-XOM">
-                                <rect key="frame" x="20" y="234" width="86" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="86" id="fME-gt-zVZ"/>
-                                </constraints>
+                            <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T9T-Jj-XOM">
+                                <rect key="frame" x="20" y="234" width="104" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Class Name" drawsBackground="YES" id="Ujv-yu-Srt">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bjv-wc-ScP">
-                                <rect key="frame" x="114" y="233" width="111" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Super Name" drawsBackground="YES" id="9jJ-LS-Dak">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -756,24 +745,35 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
+                            <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bjv-wc-ScP">
+                                <rect key="frame" x="132" y="234" width="93" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="Stz-k2-rqs"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Super Name" drawsBackground="YES" id="9jJ-LS-Dak">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="LiP-xO-6uy" secondAttribute="bottom" constant="20" id="01C-4L-3Su"/>
-                            <constraint firstItem="bjv-wc-ScP" firstAttribute="leading" secondItem="T9T-Jj-XOM" secondAttribute="trailing" constant="8" id="2mk-oB-Mod"/>
                             <constraint firstAttribute="trailing" secondItem="JTU-FD-ROf" secondAttribute="trailing" constant="20" id="2qV-V3-762"/>
+                            <constraint firstItem="bjv-wc-ScP" firstAttribute="top" secondItem="OWU-BP-Aqd" secondAttribute="top" constant="20" id="8pB-KO-uGM"/>
                             <constraint firstItem="T9T-Jj-XOM" firstAttribute="top" secondItem="OWU-BP-Aqd" secondAttribute="top" constant="20" id="DHl-i8-Mf2"/>
-                            <constraint firstItem="bjv-wc-ScP" firstAttribute="top" secondItem="OWU-BP-Aqd" secondAttribute="top" constant="20" id="EMf-0K-CJ6"/>
                             <constraint firstItem="WG5-6s-SDf" firstAttribute="top" secondItem="JTU-FD-ROf" secondAttribute="bottom" constant="8" id="F5H-85-uB7"/>
-                            <constraint firstItem="JTU-FD-ROf" firstAttribute="top" secondItem="bjv-wc-ScP" secondAttribute="bottom" constant="8" id="IFg-ad-dor"/>
                             <constraint firstItem="JTU-FD-ROf" firstAttribute="top" secondItem="T9T-Jj-XOM" secondAttribute="bottom" constant="8" id="Kbd-x8-wXY"/>
                             <constraint firstItem="T9T-Jj-XOM" firstAttribute="leading" secondItem="OWU-BP-Aqd" secondAttribute="leading" constant="20" id="YYc-Dz-2qy"/>
                             <constraint firstAttribute="trailing" secondItem="LiP-xO-6uy" secondAttribute="trailing" constant="20" id="b3W-BX-ICI"/>
                             <constraint firstItem="JTU-FD-ROf" firstAttribute="leading" secondItem="OWU-BP-Aqd" secondAttribute="leading" constant="20" id="bnf-fP-toQ"/>
                             <constraint firstAttribute="trailing" secondItem="WG5-6s-SDf" secondAttribute="trailing" constant="20" id="dLJ-9j-vkd"/>
-                            <constraint firstAttribute="trailing" secondItem="bjv-wc-ScP" secondAttribute="trailing" constant="20" id="gaS-5t-Ifx"/>
                             <constraint firstItem="WG5-6s-SDf" firstAttribute="leading" secondItem="OWU-BP-Aqd" secondAttribute="leading" constant="20" id="ifE-G8-HNC"/>
+                            <constraint firstItem="bjv-wc-ScP" firstAttribute="leading" secondItem="T9T-Jj-XOM" secondAttribute="trailing" constant="8" id="mLM-27-ih8"/>
                             <constraint firstItem="LiP-xO-6uy" firstAttribute="top" secondItem="WG5-6s-SDf" secondAttribute="bottom" constant="9" id="pER-Vs-k0e"/>
                             <constraint firstItem="LiP-xO-6uy" firstAttribute="leading" secondItem="OWU-BP-Aqd" secondAttribute="leading" constant="20" id="vSS-mB-yOL"/>
+                            <constraint firstAttribute="trailing" secondItem="bjv-wc-ScP" secondAttribute="trailing" constant="20" id="w2U-xR-zMn"/>
+                            <constraint firstItem="JTU-FD-ROf" firstAttribute="top" secondItem="bjv-wc-ScP" secondAttribute="bottom" constant="8" id="wRf-Sv-R8Y"/>
                         </constraints>
                         <connections>
                             <outlet property="generateMethodComboBox" destination="WG5-6s-SDf" id="HVm-ky-PjM"/>
@@ -790,7 +790,7 @@
                     <constraint firstItem="OWU-BP-Aqd" firstAttribute="leading" secondItem="o1F-e0-cwZ" secondAttribute="leading" id="x3Q-b3-x4A"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="279.5" y="-1021.5"/>
+            <point key="canvasLocation" x="513.5" y="-1021.5"/>
         </window>
     </objects>
 </document>
