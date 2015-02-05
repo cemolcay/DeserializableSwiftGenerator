@@ -23,7 +23,10 @@ class SWGeneratorView: NSView {
     
     @IBAction func generatePressed(sender: AnyObject) {
         if validate() {
+            let button = sender as NSButton
+            button.enabled = false
             generate()
+            button.enabled = true
         }
     }
     
@@ -73,6 +76,7 @@ class SWGeneratorView: NSView {
             case .ObjectMapper:
                 gen = ObjectMapperGenerator ()
         }
+        
         
         for sw in classes {
             gen.saveToDesktop(sw)

@@ -26,24 +26,40 @@ class SWJsonParser {
         
     }
 
+    
     func jsonStringToDict (jsonString: String) -> [String: AnyObject]? {
-        println(jsonString)
-        var jsonError: NSError? = nil
         let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        let dict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &jsonError)
-
+        if let d = data {
+            return jsonDataToDict(d)
+        } else {
+            return nil
+        }
+    }
+    
+    func jsonDataToDict (data: NSData) -> [String: AnyObject]? {
+        var jsonError: NSError? = nil
+        let dict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError)
+        
         if let e = jsonError {
             println("json error " + e.description)
             return nil
         } else {
             if let d = dict as? [String: AnyObject] {
                 return d
+            } else if let d = dict as? [AnyObject] {
+                if let d0 = d[0] as? [String: AnyObject] {
+                    return d0
+                } else {
+                    println("json nil")
+                    return nil
+                }
             } else {
                 println("json nil")
                 return nil
             }
         }
     }
+    
     
     func parseJsonToSWClass (name: String, superName: String?, jsonString: String) -> [SWClass] {
         self.generatedSWClasses = []
