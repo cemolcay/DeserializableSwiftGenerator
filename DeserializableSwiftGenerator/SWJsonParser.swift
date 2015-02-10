@@ -125,18 +125,35 @@ class SWJsonParser {
         } else if value is NSNull {
             return "String"
         } else if value is [AnyObject] {
+            
             if value.count > 0 {
-                let serializable = generateSWClass(generatedSWClassPrefix + key, superName: generatedSWClassSuperName, dict: value[0] as [String: AnyObject])
+                let serializable = generateSWClass(
+                    fixKey(key),
+                    superName: generatedSWClassSuperName,
+                    dict: value[0] as [String: AnyObject])
                 generatedSWClasses.append(serializable)
             }
             
-            return String (format: "[%@]", generatedSWClassPrefix + key)
+            return "[" + fixKey(key) + "]"
+            
         } else {
-            let serializable = generateSWClass(generatedSWClassPrefix + key, superName: generatedSWClassSuperName, dict: value as [String: AnyObject])
+            let serializable = generateSWClass(
+                fixKey(key),
+                superName: generatedSWClassSuperName,
+                dict: value as [String: AnyObject])
             generatedSWClasses.append(serializable)
             
-            return generatedSWClassPrefix + key
+            return fixKey(key)
         }
+    }
+    
+    func fixKey (key: String) -> String {
+        var ns = key as NSString
+        ns = ns.stringByReplacingOccurrencesOfString("_", withString: " ")
+        ns = ns.capitalizedString
+        ns = ns.stringByReplacingOccurrencesOfString(" ", withString: "")
+        
+        return generatedSWClassPrefix + ns
     }
 
 }

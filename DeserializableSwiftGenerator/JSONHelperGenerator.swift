@@ -26,12 +26,17 @@ class JSONHelperGenerator: SWGenerator {
     
     override func generateClassBody(sw: SWClass) -> String {
         var body = "\trequired init(data: [String : AnyObject]) {\n"
-        body += "\t\tsuper.init(data: data)\n\n"
+        
+        if let s = sw.superName {
+            body += "\t\tsuper.init(data: data)\n\n"
+        } else {
+            body += "\n"
+        }
         
         if let p = sw.properties {
             for prop in p {
                 body += "\t\t" +
-                        prop.name +
+                        fixName(prop.name) +
                         " " +
                         operatorForPropertyType(prop.type) +
                         " data[\"" +
@@ -42,6 +47,14 @@ class JSONHelperGenerator: SWGenerator {
         
         body += "\t}\n"
         return body
+    }
+    
+    func fixName (name: String) -> String {
+        if name == "data" {
+            return "self.data"
+        }
+        
+        return name
     }
     
     func operatorForPropertyType (type: String) -> String {
