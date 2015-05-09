@@ -130,7 +130,7 @@ class SWJsonParser {
                 let serializable = generateSWClass(
                     fixKey(key),
                     superName: generatedSWClassSuperName,
-                    dict: value[0] as [String: AnyObject])
+                    dict: value[0] as! [String: AnyObject])
                 generatedSWClasses.append(serializable)
             }
             
@@ -140,7 +140,7 @@ class SWJsonParser {
             let serializable = generateSWClass(
                 fixKey(key),
                 superName: generatedSWClassSuperName,
-                dict: value as [String: AnyObject])
+                dict: value as! [String: AnyObject])
             generatedSWClasses.append(serializable)
             
             return fixKey(key)
@@ -153,7 +153,7 @@ class SWJsonParser {
         ns = ns.capitalizedString
         ns = ns.stringByReplacingOccurrencesOfString(" ", withString: "")
         
-        return generatedSWClassPrefix + ns
+        return generatedSWClassPrefix + (ns as String)
     }
 
 }

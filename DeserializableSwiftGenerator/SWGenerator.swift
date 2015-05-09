@@ -49,7 +49,7 @@ class SWGenerator: SWGeneratorProtocol {
     
     func saveToDesktop (sw: SWClass) -> Bool {
         let paths = NSSearchPathForDirectoriesInDomains(.DesktopDirectory, .AllDomainsMask, true)
-        let desktop = paths[0] as String
+        let desktop = paths[0] as! String
         let path = desktop + "/" + sw.name + ".swift"
         
         let file = generateSwiftFile(sw)

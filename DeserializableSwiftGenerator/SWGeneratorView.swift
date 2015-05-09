@@ -23,7 +23,7 @@ class SWGeneratorView: NSView {
     
     @IBAction func generatePressed(sender: AnyObject) {
         if validate() {
-            let button = sender as NSButton
+            let button = sender as! NSButton
             button.enabled = false
             generate()
             button.enabled = true
@@ -44,7 +44,7 @@ class SWGeneratorView: NSView {
             return false
         }
         
-        if countElements(jsonTextView.string!) > 0 {
+        if count(jsonTextView.string!) > 0 {
             println("valid")
             return true
         } else {
