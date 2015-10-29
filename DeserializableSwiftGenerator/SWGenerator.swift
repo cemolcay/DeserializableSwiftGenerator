@@ -9,53 +9,39 @@
 import Cocoa
 
 protocol SWGeneratorProtocol {
-    var deserialzeProtocolName: String? {get}
+    var deserialzeProtocolName: String? { get }
     func generateClassBody (sw: SWClass) -> String
 }
 
 class SWGenerator: SWGeneratorProtocol {
-
-    // MARK: Init
-    
-    init () {
-        
-    }
-    
-    
-    // MARK: SWGeneratorProtocol
-    
     var deserialzeProtocolName: String? {
-        get {
-            return nil
-        }
+        return nil
     }
     
     func generateClassBody(sw: SWClass) -> String {
         return ""
     }
-    
-    
-    
-    // MARK: Generator
-    
+
     func generateSwiftFile (sw: SWClass) -> String {
         var gen = sw.getHeader(deserialzeProtocolName)
         gen += sw.getFields() + "\n"
         gen += generateClassBody(sw)
-        gen += "\n}"
-        
+        gen += "}"
         return gen
     }
     
     func saveToDesktop (sw: SWClass) -> Bool {
         let paths = NSSearchPathForDirectoriesInDomains(.DesktopDirectory, .AllDomainsMask, true)
-        let desktop = paths[0] as! String
+        let desktop = paths[0] 
         let path = desktop + "/" + sw.name + ".swift"
-        
         let file = generateSwiftFile(sw)
-        return file.writeToFile(path,
-            atomically: false,
-            encoding: NSUTF8StringEncoding,
-            error: nil)
+        do {
+            try file.writeToFile(path,
+                        atomically: false,
+                        encoding: NSUTF8StringEncoding)
+            return true
+        } catch _ {
+            return false
+        }
     }
 }

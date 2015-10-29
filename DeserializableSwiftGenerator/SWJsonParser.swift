@@ -8,26 +8,52 @@
 
 import Cocoa
 
-class SWJsonParser {
-    
-    
-    // MARK: Properties
-    
+extension String {
+    var camelCasedString: String {
+        let source = self
+        if source.characters.contains(" ") {
+            let first = source.substringToIndex(source.startIndex.advancedBy(1))
+            let cammel = NSString(format: "%@", (source as NSString).capitalizedString.stringByReplacingOccurrencesOfString(" ", withString: "", options: [], range: nil)) as String
+            let rest = String(cammel.characters.dropFirst())
+            return "\(first)\(rest)"
+        } else {
+            let first = (source as NSString).lowercaseString.substringToIndex(source.startIndex.advancedBy(1))
+            let rest = String(source.characters.dropFirst())
+            return "\(first)\(rest)"
+        }
+    }
+}
+
+final class SWJsonParser {
     private var generatedSWClasses: [SWClass] = []
-    private var generatedSWClassPrefix: String = ""
+    private var generatedSWClassPrefix: String?
     private var generatedSWClassName: String = ""
     private var generatedSWClassSuperName: String? = nil
-    
-    
-    
-    // MARK: Lifecycle
-    
-    init () {
-        
+
+    // MARK: Parser
+
+    func parseJsonToSWClass(name: String, superName: String?, jsonString: String) -> [SWClass] {
+        self.generatedSWClasses = []
+        self.generatedSWClassName = name
+        self.generatedSWClassSuperName = superName
+        // detect class prefix between paranthesis
+        let start = name.rangeOfString("(")
+        let end = name.rangeOfString(")")
+        if (end?.startIndex > start?.startIndex) {
+            generatedSWClassPrefix = name.substringWithRange(start!.endIndex...end!.startIndex.predecessor())
+            generatedSWClassName = generatedSWClassPrefix ?? "" + name.substringFromIndex(end!.endIndex)
+        }
+        // genereate swift class form json dictionary
+        if let dict = jsonStringToDict(jsonString) {
+            let sw = generateSWClass(generatedSWClassName, superName: superName, dict: dict)
+            generatedSWClasses.append(sw)
+        }
+        return generatedSWClasses
     }
 
-    
-    func jsonStringToDict (jsonString: String) -> [String: AnyObject]? {
+    // MARK: Helpers
+
+    private func jsonStringToDict (jsonString: String) -> [String: AnyObject]? {
         let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         if let d = data {
             return jsonDataToDict(d)
@@ -36,12 +62,17 @@ class SWJsonParser {
         }
     }
     
-    func jsonDataToDict (data: NSData) -> [String: AnyObject]? {
+    private func jsonDataToDict (data: NSData) -> [String: AnyObject]? {
         var jsonError: NSError? = nil
-        let dict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError)
-        
+        let dict: AnyObject?
+        do {
+            dict = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+        } catch let error as NSError {
+            jsonError = error
+            dict = nil
+        }
         if let e = jsonError {
-            println("json error " + e.description)
+            print("json error " + e.description)
             return nil
         } else {
             if let d = dict as? [String: AnyObject] {
@@ -50,62 +81,35 @@ class SWJsonParser {
                 if let d0 = d[0] as? [String: AnyObject] {
                     return d0
                 } else {
-                    println("json nil")
+                    print("json nil")
                     return nil
                 }
             } else {
-                println("json nil")
+                print("json nil")
                 return nil
             }
         }
     }
+
+    // MARK: Generators
     
-    
-    func parseJsonToSWClass (name: String, superName: String?, jsonString: String) -> [SWClass] {
-        self.generatedSWClasses = []
-        self.generatedSWClassName = name
-        self.generatedSWClassSuperName = superName
-        
-        let start = name.rangeOfString("(")
-        let end = name.rangeOfString(")")
-        if (end?.startIndex > start?.startIndex) {
-            generatedSWClassPrefix = name.substringWithRange(start!.endIndex...end!.startIndex.predecessor())
-            generatedSWClassName = generatedSWClassPrefix + name.substringFromIndex(end!.endIndex)
-        }
-        
-        if let dict = jsonStringToDict(jsonString) {
-            let sw = generateSWClass(generatedSWClassName, superName: superName, dict: dict)
-            generatedSWClasses.append(sw)
-        }
-        
-        return generatedSWClasses
-    }
-    
-    
-    
-    // MARK: Generator
-    
-    func generateSWClass (name: String, superName: String?, dict: [String: AnyObject]) -> SWClass {
+    private func generateSWClass(name: String, superName: String?, dict: [String: AnyObject]) -> SWClass {
         let props = generateProperties(dict)
         let sw = SWClass (name: name, superName: superName, properties: props)
-
         return sw
     }
     
-    func generateProperties (dict: [String: AnyObject]) -> [SWProperty]? {
+    private func generateProperties(dict: [String: AnyObject]) -> [SWProperty]? {
         var props: [SWProperty] = []
-        
         for (key, value) in dict {
             let cl = getClassFromValue(key, value: value)
             let prop = SWProperty (name: key, type: cl)
-            
             props.append(prop)
         }
-        
         return props.count > 0 ? props : nil
     }
     
-    func getClassFromValue (key: String, value: AnyObject) -> String {
+    private func getClassFromValue(key: String, value: AnyObject) -> String {
         if value is String {
             return "String"
         } else if value is Int {
@@ -125,7 +129,7 @@ class SWJsonParser {
         } else if value is NSNull {
             return "String"
         } else if value is [AnyObject] {
-            
+            // Custom Array
             if value.count > 0 {
                 let serializable = generateSWClass(
                     fixKey(key),
@@ -133,27 +137,23 @@ class SWJsonParser {
                     dict: value[0] as! [String: AnyObject])
                 generatedSWClasses.append(serializable)
             }
-            
             return "[" + fixKey(key) + "]"
-            
         } else {
+            // Custom Class
             let serializable = generateSWClass(
                 fixKey(key),
                 superName: generatedSWClassSuperName,
                 dict: value as! [String: AnyObject])
             generatedSWClasses.append(serializable)
-            
             return fixKey(key)
         }
     }
     
-    func fixKey (key: String) -> String {
+    private func fixKey(key: String) -> String {
         var ns = key as NSString
         ns = ns.stringByReplacingOccurrencesOfString("_", withString: " ")
-        ns = ns.capitalizedString
         ns = ns.stringByReplacingOccurrencesOfString(" ", withString: "")
-        
-        return generatedSWClassPrefix + (ns as String)
+        let fix = (generatedSWClassPrefix ?? "") + (ns as String)
+        return fix
     }
-
 }

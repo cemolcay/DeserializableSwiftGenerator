@@ -17,7 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        
+        let testCamel = "hello_world"
+        Swift.print(testCamel.camelCasedString)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -25,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func testGenerator () {
-        println("test starting")
+        print("test starting")
         
         let p1 = SWProperty (name: "name", type: "String")
         let p2 = SWProperty (name: "surname", type: "String")
@@ -35,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let gen  = ObjectMapperGenerator ()
         let save = gen.saveToDesktop(c)
-        println("did save \(save)")
+        print("did save \(save)")
     }
 }
 

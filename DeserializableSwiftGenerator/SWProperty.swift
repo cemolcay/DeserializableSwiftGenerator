@@ -8,8 +8,7 @@
 
 import Cocoa
 
-class SWProperty {
-
+final class SWProperty {
     var name: String
     var type: String
     

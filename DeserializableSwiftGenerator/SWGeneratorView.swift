@@ -14,15 +14,13 @@ enum GenerateMethod: Int {
 }
 
 class SWGeneratorView: NSView {
-    
     @IBOutlet var nameTextField: NSTextField!
     @IBOutlet var superTextField: NSTextField!
-    
     @IBOutlet var jsonTextView: NSTextView!
     @IBOutlet var generateMethodComboBox: NSPopUpButton!
     
     @IBAction func generatePressed(sender: AnyObject) {
-        if validate() {
+        if isValid() {
             let button = sender as! NSButton
             button.enabled = false
             generate()
@@ -38,17 +36,16 @@ class SWGeneratorView: NSView {
                 size: 11)
     }
 
-    func validate () -> Bool {
+    func isValid () -> Bool {
         if nameTextField.stringValue.isEmpty {
-            println("not valid, name empty")
+            Swift.print("not valid, name empty")
             return false
         }
-        
-        if count(jsonTextView.string!) > 0 {
-            println("valid")
+        if (jsonTextView.string!).characters.count > 0 {
+            Swift.print("valid")
             return true
         } else {
-            println("not valid json empty")
+            Swift.print("not valid json empty")
             return false
         }
     }
@@ -56,31 +53,23 @@ class SWGeneratorView: NSView {
     func generate () {
         let name: String = nameTextField.stringValue
         var superName: String? = superTextField.stringValue
-        
         if superTextField.stringValue.isEmpty {
             superName = nil
         }
-        
         let json = jsonTextView.string!
-
-        let parser = SWJsonParser ()
+        let parser = SWJsonParser()
         let classes = parser.parseJsonToSWClass(name, superName: superName, jsonString: json)
-
         var gen: SWGenerator!
         let method = GenerateMethod (rawValue: generateMethodComboBox.indexOfSelectedItem)!
-        
         switch method {
             case .JSONHelper:
-                gen = JSONHelperGenerator ()
+                gen = JSONHelperGenerator()
                 
             case .ObjectMapper:
-                gen = ObjectMapperGenerator ()
+                gen = ObjectMapperGenerator()
         }
-        
-        
         for sw in classes {
             gen.saveToDesktop(sw)
         }
     }
-    
 }

@@ -7,8 +7,7 @@
 //
 
 
-class SWClass {
-    
+final class SWClass {
     var name: String
     var superName: String?
     var properties: [SWProperty]?
@@ -21,10 +20,8 @@ class SWClass {
     
     func getHeader (protocolName: String?) -> String {
         var header = "class " + name
-        
         if let s = superName {
             header += ": " + s
-            
             if let p = protocolName {
                 header += ", " + p
             }
@@ -33,19 +30,16 @@ class SWClass {
                 header += ": " + p
             }
         }
-        
         return header + " {\n"
     }
     
     func getFields () -> String {
-        var fields = "\n"
-        
+        var fields = ""
         if let p = properties {
             for prop in p {
                 fields += "\t" + prop.getVariableLine() + "\n"
             }
         }
-        
         return fields
     }
 }
